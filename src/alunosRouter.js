@@ -3,28 +3,46 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
-router.get('/', (req, res) => {
-  res.send(`GET ALL`)
+router.get('/', async (req, res) => {
+    res.send({ "message": "todos os alunos" });
 });
 
-router.get('/:id', (req, res) => {
-   res.send(`GET ID: ${req.params.id}`);
+router.get('/:id', async (req, res) => {
+
+    res.send({});
 });
 
-router.get('/matricula/:matricula', (req, res) => {
-    res.send(`GET Matricula: ${req.params.matricula}`);
+router.get('/matricula/:matricula', async (req, res) => {
+    res.send({});
 });
 
-router.put('/:id', (req, res) => {//atualizar
-    res.send(`PUT: ${JSON.stringify(req.body)}`);
+router.post('/', async (req, res) => {//salvar
+    res.send({
+    });
 });
 
-router.post('/', (req, res) => {//salvar
-    res.send(`POST: ${JSON.stringify(req.body)}`);
+router.put('/:id', async (req, res) => {//atualizar
+    res.send({
+
+    });
 });
 
-router.delete('/', (req, res) => {//delete
-    res.send(`DELETE: ${req.params.id}`);
+router.delete('/:id', async (req, res) => {//delete
+    res.status(204).send({
+
+    });
+});
+
+router.post('/:id/atividade', async (req, res) => {
+    res.send({
+
+    });
+});
+
+router.put('/:id/atividade/:idAtividade', async (req, res) => {
+    res.send({
+
+    });
 });
 
 module.exports = router;
