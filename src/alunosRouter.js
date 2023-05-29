@@ -16,11 +16,11 @@ router.get('/matricula/:matricula', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {//atualizar
-    res.send(`PUT: ${req.body}`);
+    res.send(`PUT: ${JSON.stringify(req.body)}`);
 });
 
 router.post('/', (req, res) => {//salvar
-    res.send(`POST: ${req.body}`);
+    res.send(`POST: ${JSON.stringify(req.body)}`);
 });
 
 router.delete('/', (req, res) => {//delete
