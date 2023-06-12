@@ -14,5 +14,14 @@
     "nodemon": "^2.0.22",
     "sequelize": "^6.31.1"
   },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlePereiras/Banco.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlePereiras/Banco/issues"
+  },
+  "homepage": "https://github.com/AlePereiras/Banco#readme",
   "description": ""
 }
