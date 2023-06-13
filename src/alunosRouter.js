@@ -2,6 +2,7 @@ const express = require('express');
 
 const Aluno = require('./alunoModel');
 const Atividade = require('./atividadeModel');
+const { DATE } = require('sequelize');
 
 const router = express.Router();
 router.use(express.json());
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-const aluno = await Aluno.findByPk(req.params.id, {include: 'a'});
+const aluno = await Aluno.findByPk(req.params.id, {include: 'atividades'});
     res.send(aluno);
 });
 
@@ -63,9 +64,12 @@ router.post('/:id/atividade', async (req, res) => {
     
 
 router.put('/:id/atividade/:idAtividade', async (req, res) => {
-    res.send({
-
-    });
+    const aluno = await Aluno.findByPk(req.params.id, {include: 'atividades'});
+    const atividade = await Atividade.findByPk(req.params.idAtividade);
+    atividade.update({...atividade, ...req.body})
+    atividade.data_envio = Date.now();
+    const result = await atividade.save();
+    res.send(result);
 });
 
 module.exports = router;
